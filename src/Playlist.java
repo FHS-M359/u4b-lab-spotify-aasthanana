@@ -31,9 +31,36 @@ public class Playlist {
         System.out.println("");
         System.out.println("-------------------------------------------------------------------------------------------------------");
 
-        for (Song s: songs)
-        {
+        for (Song s: songs) {
             System.out.println(s);
         }
+    }
+    public void alphabet(){
+
+    }
+    public void reversealphabet(){
+
+    }
+    public void years(){
+
+    }
+    public void reverseyears(){
+
+    }
+    public void genre(String genre){
+        boolean found = false;
+        for (Song s: songs) {
+            if(s.getgenre().equalsIgnoreCase(genre)){
+                System.out.println(s);
+                found = true;
+            }
+            if(found == false){
+                System.out.println("Sorry no songs found in the genre" + genre);
+            }
+        }
+
+    }
+    public void quit(){
+
     }
 }
