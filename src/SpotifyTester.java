@@ -4,13 +4,14 @@ import java.util.Scanner;
 public class SpotifyTester {
 
     public static void main (String[] args) throws FileNotFoundException {
+
         System.out.println("==== Spotify Menu ====");
         System.out.println("1 - Sort by artist A → Z");
         System.out.println("2 - Sort by artist Z → A");
         System.out.println("3 - Sort by year oldest → newest");
         System.out.println("4 - Sort by year newest → oldest");
         System.out.println("5 - Search by genre");
-        System.out.println("6 - Display all, songs");
+        System.out.println("6 - Display all songs");
         System.out.println("7 - Quit");
         System.out.println("Pick a number 1-7");
 
@@ -51,11 +52,16 @@ else if(menunum == 4){
 
 }
 else if(menunum == 5){
+
     playlist.reverseyears();
 
 }
 else if(menunum == 6){
-    playlist.genre(String genre);
+    Scanner out = new Scanner(System.in);
+    System.out.println("What genre do you want to search for?");
+    String generpicked = out.nextLine();
+    playlist.loadInfo();
+    playlist.genre(generpicked);
 
 }
 else{

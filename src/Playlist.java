@@ -50,13 +50,13 @@ public class Playlist {
     public void genre(String genre){
         boolean found = false;
         for (Song s: songs) {
-            if(s.getgenre().equalsIgnoreCase(genre)){
+            if(s.getgenre().equalsIgnoreCase(genre)) {
                 System.out.println(s);
                 found = true;
             }
-            if(found == false){
-                System.out.println("Sorry no songs found in the genre" + genre);
-            }
+        }
+        if(!found){
+            System.out.println("Sorry no songs found in the genre " + genre);
         }
 
     }
