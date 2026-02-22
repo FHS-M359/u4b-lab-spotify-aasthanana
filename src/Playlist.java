@@ -2,6 +2,8 @@ import java.util.ArrayList;
 import java.util.Scanner;
 import java.io.File;
 import java.io.FileNotFoundException;
+import java.util.Collections;
+
 
 public class Playlist {
 
@@ -36,15 +38,42 @@ public class Playlist {
         }
     }
     public void alphabet(){
-
+        Collections.sort(songs);
+        printInfo();
     }
     public void reversealphabet(){
-
+        Collections.sort(songs, Collections.reverseOrder());
+        printInfo();
     }
-    public void years(){
+    public void sortByRelease(){
+        for(int i = 0; i < songs.size() - 1; i++){
+            int minIndex = i;
 
+            for(int j = i + 1; j < songs.size(); j++){
+                if (songs.get(j).getreleaseYear() < songs.get(minIndex).getreleaseYear()) {
+                    minIndex = j;
+                }
+            }
+            Song temp = songs.get(i);
+            songs.set(i, songs.get(minIndex));
+            songs.set(minIndex, temp);
+        }
+        printInfo();
     }
-    public void reverseyears(){
+    public void sortByReleaseReverse(){
+        for(int i = 0; i < songs.size() - 1; i++){
+            int minIndex = i;
+
+            for(int j = i + 1; j < songs.size(); j++){
+                if (songs.get(j).getreleaseYear() > songs.get(minIndex).getreleaseYear()) {
+                    minIndex = j;
+                }
+            }
+            Song temp = songs.get(i);
+            songs.set(i, songs.get(minIndex));
+            songs.set(minIndex, temp);
+        }
+        printInfo();
 
     }
     public void genre(String genre){
