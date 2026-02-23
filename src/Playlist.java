@@ -2,7 +2,6 @@ import java.util.ArrayList;
 import java.util.Scanner;
 import java.io.File;
 import java.io.FileNotFoundException;
-import java.util.Collections;
 
 
 public class Playlist {
@@ -37,45 +36,69 @@ public class Playlist {
             System.out.println(s);
         }
     }
-    public void alphabet(){
-        Collections.sort(songs);
+    public void alphabet() {
+        for (int i = 0; i < songs.size(); i++) {
+            int minIndex = i;
+
+            for (int j = i + 1; j < songs.size(); j++) {
+                if (songs.get(j).getartist().compareToIgnoreCase(songs.get(minIndex).getartist()) < 0) {
+                    minIndex = j;
+                }
+            }
+            Song temp = songs.get(i);
+            songs.set(i, songs.get(minIndex));
+            songs.set(minIndex, temp);
+        }
         printInfo();
+
     }
     public void reversealphabet(){
-        Collections.sort(songs, Collections.reverseOrder());
+        for (int i = 0; i < songs.size(); i++) {
+            int maxIndex = i;
+
+            for (int j = i + 1; j < songs.size(); j++) {
+                if (songs.get(j).getartist().compareToIgnoreCase(songs.get(maxIndex).getartist()) > 0) {
+                    maxIndex = j;
+                }
+            }
+            Song temp = songs.get(i);
+            songs.set(i, songs.get(maxIndex));
+            songs.set(maxIndex, temp);
+        }
         printInfo();
     }
+
     public void sortByRelease(){
-        for(int i = 0; i < songs.size() - 1; i++){
-            int minIndex = i;
-
-            for(int j = i + 1; j < songs.size(); j++){
-                if (songs.get(j).getreleaseYear() < songs.get(minIndex).getreleaseYear()) {
-                    minIndex = j;
-                }
-            }
+        for(int i = 0; i < songs.size(); i++){
             Song temp = songs.get(i);
-            songs.set(i, songs.get(minIndex));
-            songs.set(minIndex, temp);
+            int position = i;
+
+            while(position > 0 && songs.get(position - 1).getreleaseYear() > temp.getreleaseYear()){
+                songs.set(position, songs.get(position - 1));
+                position --;
+            }
+
+            songs.set(position, temp);
         }
         printInfo();
+
     }
+
     public void sortByReleaseReverse(){
-        for(int i = 0; i < songs.size() - 1; i++){
-            int minIndex = i;
-
-            for(int j = i + 1; j < songs.size(); j++){
-                if (songs.get(j).getreleaseYear() > songs.get(minIndex).getreleaseYear()) {
-                    minIndex = j;
-                }
-            }
+        for(int i = 0; i < songs.size(); i++){
             Song temp = songs.get(i);
-            songs.set(i, songs.get(minIndex));
-            songs.set(minIndex, temp);
+            int position = i;
+
+            while(position > 0 && songs.get(position - 1).getreleaseYear() < temp.getreleaseYear()){
+                songs.set(position, songs.get(position - 1));
+                position --;
+            }
+
+            songs.set(position, temp);
         }
         printInfo();
-
     }
+
     public void genre(String genre){
         boolean found = false;
         for (Song s: songs) {

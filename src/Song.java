@@ -1,6 +1,5 @@
-    public class Song implements Comparable<Song> {
-
-        private String title;
+public class Song {
+    private String title;
     private String artist;
     private String album;
     private int durationSeconds;
@@ -17,35 +16,44 @@
     }
 
     public String gettitle() {
+
         return title;
     }
     public String getartist() {
+
         return artist;
     }
     public String getalbum(){
         return album;
     }
     public int getdurationSeconds(){
+
         return durationSeconds;
     }
     public int getreleaseYear(){
+
         return releaseYear;
     }
     public String getgenre(){
+
         return genre;
     }
 
 
     public void settitle(String title) {
+
         this.title = title;
     }
     public void setartist(String artist) {
+
         this.artist = artist;
     }
     public void setalbum(String album) {
+
         this.album = album;
     }
     public void setdurationSeconds(int durationSeconds) {
+
         this.durationSeconds = durationSeconds;
     }
     public void setreleaseYear(int releaseYear) {
