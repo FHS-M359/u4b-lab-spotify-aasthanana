@@ -7,7 +7,7 @@ import java.io.FileNotFoundException;
 public class Playlist {
 
     ArrayList<Song> songs = new ArrayList<>();
-
+//loads info from file and stores into these variables
     public void loadInfo() throws FileNotFoundException {
         Scanner scan = new Scanner(new File("src/spotify_unique_years_artists.txt"));
 
@@ -26,7 +26,7 @@ public class Playlist {
         }
         scan.close();
     }
-
+//layout of how to print data
     public void printInfo(){
         System.out.printf("%-30s %-20s %-25s %-8s %-6s %-12s", "Title", "Artist", "Album", "Seconds", "Year", "Genre");
         System.out.println("");
@@ -36,6 +36,7 @@ public class Playlist {
             System.out.println(s);
         }
     }
+    //puts each song in alaphabetical order via artist
     public void alphabet() {
         for (int i = 0; i < songs.size(); i++) {
             int minIndex = i;
@@ -52,6 +53,7 @@ public class Playlist {
         printInfo();
 
     }
+    //puts each song in revesrse alaphabetical order via artist
     public void reversealphabet(){
         for (int i = 0; i < songs.size(); i++) {
             int maxIndex = i;
@@ -67,7 +69,7 @@ public class Playlist {
         }
         printInfo();
     }
-
+    //puts each song in numerical order via release date
     public void sortByRelease(){
         for(int i = 0; i < songs.size(); i++){
             Song temp = songs.get(i);
@@ -83,7 +85,7 @@ public class Playlist {
         printInfo();
 
     }
-
+    //puts each song in reverse numerical order via release date
     public void sortByReleaseReverse(){
         for(int i = 0; i < songs.size(); i++){
             Song temp = songs.get(i);
@@ -98,8 +100,8 @@ public class Playlist {
         }
         printInfo();
     }
-
-    public void genre(String genre){
+//sort the songs and finds all songs in the genre they pick
+public void genre(String genre){
         boolean found = false;
         for (Song s: songs) {
             if(s.getgenre().equalsIgnoreCase(genre)) {
@@ -110,9 +112,6 @@ public class Playlist {
         if(!found){
             System.out.println("Sorry no songs found in the genre " + genre);
         }
-
-    }
-    public void quit(){
 
     }
 }

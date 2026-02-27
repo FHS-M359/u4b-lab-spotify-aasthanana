@@ -66,7 +66,5 @@ public class Song {
     public String toString() {
         return String.format("%-30s %-20s %-25s %-8d %-6d %-12s", title, artist, album, durationSeconds, releaseYear, genre);
     }
-    public int compareTo(Song other) {
-        return this.artist.compareToIgnoreCase(other.artist);
-    }
+
 }

@@ -9,7 +9,7 @@ public class SpotifyTester {
         Scanner in = new Scanner(System.in);
         Playlist playlist = new Playlist();
         playlist.loadInfo();
-
+//displays the 7 options and when an option is picked it will show the corespoding list
         while (menunum != 7){
             System.out.println("==== Spotify Menu ====");
             System.out.println("1 - Sort by artist A → Z");
@@ -21,7 +21,7 @@ public class SpotifyTester {
             System.out.println("7 - Quit");
 
             boolean tryAgain = true;
-
+//try catch method that looks for a number between 1-7
             while (tryAgain) {
                 try {
                     System.out.print("Please enter a number 1-7");
@@ -37,7 +37,7 @@ public class SpotifyTester {
                 }
 
             }
-
+//if else loop coreponding with number picked from the above while loop
             if (menunum == 1) {
                 playlist.alphabet();
 
@@ -60,7 +60,6 @@ public class SpotifyTester {
                 playlist.printInfo();
 
             } else {
-                playlist.quit();
                 System.out.println("Thank You for participating! Have a good day :)");
             }
         }
